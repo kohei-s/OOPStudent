@@ -42,20 +42,23 @@ public class StudentDB {
         return randomStudent;
     }
 
-    public void addStudentToDB (String name, int id) {
-        Student [] oldDB = this.getAllStudents();
+    public StudentDB addStudentToDB (String name, int id) {
+        Student [] allStudents = this.getAllStudents();
+        StudentDB oldDB = new StudentDB (allStudents);
         Student newStudent = new Student(name, id);
-        Student [] newDB = Arrays.copyOf(oldDB, oldDB.length + 1);
+        StudentDB newDB = Arrays.copyOf(oldDB, oldDB.length + 1);
         newDB[newDB.length - 1] = newStudent;
-        System.out.println("Ein neuer Student: " + name + "(" + id  +") is zur StudentDB hinzugefügt.");
+        System.out.println("Student/in: " + name + "(" + id  +") is zur StudentDB hinzugefügt.");
+        return newDB;
     }
 
-    public void removeStudentFromDB (Student student) {
-        Student [] oldDB = this.getAllStudents();
+    public StudentDB removeStudentFromDB (Student student) {
+        Student [] allStudents = this.getAllStudents();
+        StudentDB oldDB = new StudentDB (allStudents);
         int i = Arrays.asList(oldDB).indexOf(student);
-        Student [] newDB = ArrayUtils.remove(oldDB, i);
-        System.out.println("Ein Student: " + student.name + "(" + student.id  +") is von der StudentDB entfernt.");
-
+        StudentDB newDB = ArrayUtils.remove(oldDB, i);
+        System.out.println("Student/in: " + student.name + "(" + student.id  +") is von der StudentDB entfernt.");
+        return newDB;
     }
 
 }

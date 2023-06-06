@@ -36,25 +36,22 @@ public class StudentDB {
         return Arrays.hashCode(allStudents);
     }
 
-    public static Student randomStudent() {
-        Student [] allStudents = this.getAllStudents();
-        int randomIndex = (int) Math.random() * (allStudents.length);
-        Student randomStudent = allStudents[randomIndex];
+    public Student randomStudent() {
+        int randomIndex = (int) Math.random() * (this.allStudents.length);
+        Student randomStudent = this.allStudents[randomIndex];
         return randomStudent;
     }
 
     public Student[] addStudentToDB (Student student) {
-        Student [] oldDB = this.getAllStudents();
-        Student [] newDB = Arrays.copyOf(oldDB, oldDB.length + 1);
+        Student [] newDB = Arrays.copyOf(this.allStudents, this.allStudents.length + 1);
         newDB[newDB.length - 1] = student;
         System.out.println("Student/in: " + student.name + "(" + student.id  +") is zur StudentDB hinzugefügt.");
         return newDB;
     }
 
     public Student[] removeStudentFromDB (Student student) {
-        Student [] oldDB = this.getAllStudents();
-        int i = Arrays.asList(oldDB).indexOf(student);
-        Student [] newDB = ArrayUtils.remove(oldDB, i);
+        int i = Arrays.asList(this.allStudents).indexOf(student);
+        Student [] newDB = ArrayUtils.remove(this.allStudents, i);
         System.out.println("Student/in: " + student.name + "(" + student.id  +") is von der StudentDB entfernt.");
         return newDB;
     }

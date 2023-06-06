@@ -10,13 +10,13 @@ public class Main {
         Student studentJ = new Student("JKL", 4);
         Student studentM = new Student("MNO", 5);
         Student studentP = new Student("PQR", 6);
-        Student [] allStudents = {studentA, studentD, studentG, studentJ, studentM, studentP};
+        Student [] allStudents = {studentA, studentD, studentG, studentJ, studentM};
         StudentDB studentDB = new StudentDB (allStudents);
 
         System.out.println(studentDB.toString());
         System.out.println(studentDB.hashCode());
-        System.out.println(studentDB.randomStudent();
-//        System.out.println(studentDB.addStudentToDB("STU",7));
+        System.out.println(studentDB.randomStudent());
+        System.out.println(studentDB.addStudentToDB(studentP));
         System.out.println(studentDB.removeStudentFromDB(studentA));
 
 

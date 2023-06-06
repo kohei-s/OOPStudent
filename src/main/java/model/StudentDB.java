@@ -13,7 +13,7 @@ public class StudentDB {
     }
 
     public Student[] getAllStudents() {
-        return allStudents;
+        return this.allStudents;
     }
 
     @Override
@@ -36,27 +36,25 @@ public class StudentDB {
         return Arrays.hashCode(allStudents);
     }
 
-    public static Student randomStudent(Student[] allStudents) {
+    public static Student randomStudent() {
+        Student [] allStudents = this.getAllStudents();
         int randomIndex = (int) Math.random() * (allStudents.length);
         Student randomStudent = allStudents[randomIndex];
         return randomStudent;
     }
 
-    public StudentDB addStudentToDB (String name, int id) {
-        Student [] allStudents = this.getAllStudents();
-        StudentDB oldDB = new StudentDB (allStudents);
-        Student newStudent = new Student(name, id);
-        StudentDB newDB = Arrays.copyOf(oldDB, oldDB.length + 1);
-        newDB[newDB.length - 1] = newStudent;
-        System.out.println("Student/in: " + name + "(" + id  +") is zur StudentDB hinzugefügt.");
+    public Student[] addStudentToDB (Student student) {
+        Student [] oldDB = this.getAllStudents();
+        Student [] newDB = Arrays.copyOf(oldDB, oldDB.length + 1);
+        newDB[newDB.length - 1] = student;
+        System.out.println("Student/in: " + student.name + "(" + student.id  +") is zur StudentDB hinzugefügt.");
         return newDB;
     }
 
-    public StudentDB removeStudentFromDB (Student student) {
-        Student [] allStudents = this.getAllStudents();
-        StudentDB oldDB = new StudentDB (allStudents);
+    public Student[] removeStudentFromDB (Student student) {
+        Student [] oldDB = this.getAllStudents();
         int i = Arrays.asList(oldDB).indexOf(student);
-        StudentDB newDB = ArrayUtils.remove(oldDB, i);
+        Student [] newDB = ArrayUtils.remove(oldDB, i);
         System.out.println("Student/in: " + student.name + "(" + student.id  +") is von der StudentDB entfernt.");
         return newDB;
     }

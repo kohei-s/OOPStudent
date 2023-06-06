@@ -15,7 +15,7 @@ public class Main {
 
         System.out.println(studentDB.toString());
         System.out.println(studentDB.hashCode());
-        System.out.println(studentDB.randomStudent(allStudents));
+        System.out.println(studentDB.randomStudent();
 //        System.out.println(studentDB.addStudentToDB("STU",7));
         System.out.println(studentDB.removeStudentFromDB(studentA));
 

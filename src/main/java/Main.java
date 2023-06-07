@@ -1,5 +1,8 @@
 import model.Student;
 import model.StudentDB;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -10,16 +13,13 @@ public class Main {
         Student studentJ = new Student("JKL", 4);
         Student studentM = new Student("MNO", 5);
         Student studentP = new Student("PQR", 6);
-        Student [] allStudents = {studentA, studentD, studentG, studentJ, studentM};
+
+        ArrayList <Student> allStudents = new ArrayList<>();
         StudentDB studentDB = new StudentDB (allStudents);
+        studentDB.allStudents.add(studentA);
 
-        System.out.println(studentDB.toString());
-        System.out.println(studentDB.hashCode());
-        System.out.println(studentDB.randomStudent());
-        System.out.println(studentDB.addStudentToDB(studentP));
-        System.out.println(studentDB.removeStudentFromDB(studentA));
-
-
+        studentDB.addStudentToDB(studentP);
+        studentDB.removeStudentFromDB(studentA);
 
     }
 }

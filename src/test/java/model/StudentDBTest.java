@@ -2,39 +2,26 @@ package model;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StudentDBTest {
 
 
     @Test
-    void testGetAllStudents () {
+   /* void testGetAllStudents () {
         Student a = new Student ("A", 1);
         Student b = new Student ("B", 2);
         Student c = new Student ("C", 3);
-        Student [] expected = {a, b, c};
-        StudentDB testDB = new StudentDB (expected);
-        Student [] actual = testDB.getAllStudents();
-        assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    void testStudentDBToString () {
-        Student a = new Student ("A", 1);
-        Student b = new Student ("B", 2);
-        Student c = new Student ("C", 3);
-        String expected = "StudentDB{allStudents=[" +
-                a.toString() + ", " +
-                b.toString() + ", " +
-                c.toString() + "]}";
-        Student [] testStudents = {a, b, c};
-        StudentDB testDB = new StudentDB (testStudents);
-        String actual = testDB.toString();
+        List<Student> testDB = new ArrayList<Student>();
+        List expected = testDB.addAll(Arrays.asList(a, b, c);
+        List actual = testDB.getAllStudents();
         assertEquals(expected, actual);
-    }
-
-    @Test
+    }*/
 
 
 
